@@ -4,8 +4,8 @@ FROM pytorch/pytorch
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y tzdata libopencv-dev libgl1-mesa-dev
+    && apt-get install -y tzdata libopencv-dev libgl1-mesa-dev parallel
 RUN pip install -U pip \
-    && pip install jupyter scipy matplotlib grad-cam opencv-python sklearn pandas timm gradio pytorchvideo
+    && pip install jupyter scipy matplotlib grad-cam opencv-python sklearn pandas timm gradio pytorchvideo tslearn nptyping
 
 CMD ["jupyter", "notebook", "--allow-root", "--port", "8888", "--ip", "0.0.0.0"]
